@@ -9,10 +9,18 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// Allow requests from the frontend
+app.use(cors({
+    origin: [
+        'https://college-website-using-angular-js-yu.vercel.app',
+        'http://localhost:4200'
+    ],
+    credentials: true
+}));
+
 app.use(express.json());
 
-// Health check route for Vercel
+// Health check route
 app.get('/', (req, res) => {
     res.json({ status: 'Backend is running 🚀', database: process.env.DATABASE_URL ? 'Connected' : 'Missing URL' });
 });
