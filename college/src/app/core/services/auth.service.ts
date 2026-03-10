@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-    private baseUrl = 'http://localhost:3000/api/auth';
+    private baseUrl = 'https://college-website-using-angular-js.vercel.app/api/auth';
     constructor(private http: HttpClient) { }
     login(credentials: any) {
         return this.http.post<any>(`${this.baseUrl}/login`, credentials).pipe(
