@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
         </button>
 
         <!-- Mobile Menu Overlay -->
-        <div *ngIf="isMenuOpen" class="fixed inset-0 top-[88px] mx-4 bg-white/90 backdrop-blur-xl z-40 lg:hidden rounded-3xl p-8 flex flex-col gap-6 shadow-2xl animate-fade-up border border-slate-100">
+        <div *ngIf="isMenuOpen" class="fixed inset-0 top-[88px] mx-4 bg-white z-40 lg:hidden rounded-3xl p-8 flex flex-col gap-6 shadow-2xl animate-fade-up border border-slate-100">
             <a routerLink="/" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">Home</a>
             <a routerLink="/about" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">About</a>
             <a routerLink="/departments" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">Departments</a>

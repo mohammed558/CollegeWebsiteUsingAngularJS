@@ -9,7 +9,7 @@ import { ApiService } from '../../../core/services/api.service';
     imports: [CommonModule, FormsModule],
     templateUrl: './chatbot.component.html',
     styles: [`
-    .chat-window { height: 450px; overflow-y: auto; scrollbar-width: none; }
+    .chat-window { height: 400px; overflow-y: auto; scrollbar-width: none; }
     .chat-window::-webkit-scrollbar { display: none; }
   `]
 })
