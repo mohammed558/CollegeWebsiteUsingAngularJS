@@ -12,7 +12,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Route
+// Health check route for Vercel
+app.get('/', (req, res) => {
+    res.json({ status: 'Backend is running 🚀', database: process.env.DATABASE_URL ? 'Connected' : 'Missing URL' });
+});
+
+// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/college', collegeRoutes);
 app.use('/api/chat', chatRoutes);
