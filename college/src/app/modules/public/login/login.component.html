@@ -1,0 +1,46 @@
+<div class="min-h-screen relative flex items-center justify-center px-6 overflow-hidden">
+    <!-- Background Blurs -->
+    <div class="absolute top-0 -left-20 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 -right-20 w-80 h-80 bg-brand-secondary/20 rounded-full blur-3xl -z-10"></div>
+
+    <div
+        class="max-w-md w-full glass rounded-[2.5rem] p-6 md:p-12 relative animate-fade-up shadow-[0_20px_50px_rgba(30,64,175,0.1)]">
+        <div class="text-center mb-10">
+            <div
+                class="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center text-white font-black text-2xl mx-auto mb-6 shadow-xl shadow-brand-primary/20 ring-4 ring-brand-primary/5">
+                X</div>
+            <h2 class="text-3xl font-black font-display text-slate-800 mb-2">Welcome Back</h2>
+            <p class="text-slate-500 font-medium text-sm">Access your university portal</p>
+        </div>
+
+        <form (submit)="login()" class="space-y-6">
+            <div class="space-y-2">
+                <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 px-1">Institutional
+                    Email</label>
+                <input [(ngModel)]="email" name="email" type="email" placeholder="name@Modern.edu"
+                    class="w-full bg-white/50 border-2 border-slate-100 px-5 py-4 rounded-2xl focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all placeholder:text-slate-300 font-medium">
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex justify-between items-center px-1">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-500">Secure
+                        Password</label>
+                    <a href="#"
+                        class="text-[10px] font-bold text-brand-primary uppercase tracking-wider hover:underline">Forgot?</a>
+                </div>
+                <input [(ngModel)]="password" name="password" type="password" placeholder="••••••••"
+                    class="w-full bg-white/50 border-2 border-slate-100 px-5 py-4 rounded-2xl focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all placeholder:text-slate-300 font-medium">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-lg hover:bg-black shadow-xl shadow-brand-primary/20 hover:shadow-brand-primary/30 transition-all transform hover:scale-[1.01] active:scale-[0.99] mt-4">
+                Sign In to Portal
+            </button>
+        </form>
+
+        <div class="mt-8 text-center">
+            <p class="text-slate-400 text-xs font-medium italic select-none">"Transforming potential into achievement."
+            </p>
+        </div>
+    </div>
+</div>

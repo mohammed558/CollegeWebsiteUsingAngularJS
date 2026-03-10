@@ -1,0 +1,106 @@
+<div class="min-h-screen bg-[#f8fafc] py-8 md:py-12 px-4 md:px-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Dashboard Header -->
+        <header
+            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 md:mb-12 animate-fade-up">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-black font-display text-slate-900 mb-2">Student <span
+                        class="text-brand-primary">Dashboard</span></h1>
+                <p class="text-slate-500 font-medium text-sm md:text-base">Welcome back, your academic progress looks
+                    great!</p>
+            </div>
+
+            <div
+                class="glass flex items-center gap-4 p-3 pr-6 rounded-[1.5rem] md:rounded-[2rem] border-slate-200/50 shadow-sm w-full md:w-auto">
+                <div
+                    class="w-10 h-10 md:w-12 md:h-12 bg-brand-primary text-white rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg shadow-lg shadow-brand-primary/20 shrink-0">
+                    {{ student.name[0] }}{{ student.name.split(' ')[1] ? student.name.split(' ')[1][0] : '' }}
+                </div>
+                <div class="min-w-0">
+                    <p class="font-bold text-slate-800 leading-none mb-1 truncate text-sm md:text-base">{{ student.name
+                        }}</p>
+                    <p class="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-400 truncate">{{
+                        student.roll }}</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
+            <div class="space-y-8 md:space-y-10">
+                <!-- Attendance Card -->
+                <div class="glass p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group animate-fade-up"
+                    style="animation-delay: 0.1s">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Course
+                        Attendance</h3>
+                    <div class="flex items-end gap-3">
+                        <p class="text-5xl md:text-6xl font-black font-display text-brand-primary leading-none">{{
+                            student.attendance }}</p>
+                        <span class="text-green-500 font-bold text-xs md:text-sm mb-1">↑ 2% this week</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2 mt-8 rounded-full overflow-hidden">
+                        <div class="bg-brand-primary h-full rounded-full" [style.width]="student.attendance"></div>
+                    </div>
+                </div>
+
+                <!-- Simple Quick Stats -->
+                <div class="grid grid-cols-2 gap-4 md:gap-6 animate-fade-up" style="animation-delay: 0.2s">
+                    <div class="glass p-5 md:p-6 rounded-2xl md:rounded-3xl text-center border-slate-100">
+                        <p class="text-xl md:text-2xl font-black font-display text-slate-800">3.8</p>
+                        <p class="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Current
+                            GPA</p>
+                    </div>
+                    <div class="glass p-5 md:p-6 rounded-2xl md:rounded-3xl text-center border-slate-100">
+                        <p class="text-xl md:text-2xl font-black font-display text-slate-800">12</p>
+                        <p class="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Pending
+                            Tasks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timetable Section -->
+            <div class="lg:col-span-2 glass p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] animate-fade-up shadow-sm border-slate-200/30"
+                style="animation-delay: 0.3s">
+                <div class="flex justify-between items-center mb-8 md:mb-10">
+                    <h3 class="text-xl md:text-2xl font-black font-display text-slate-800">Today's Schedule</h3>
+                    <button
+                        class="text-brand-primary text-[10px] md:text-xs font-bold uppercase tracking-widest hover:underline whitespace-nowrap">Full
+                        Calendar</button>
+                </div>
+
+                <div class="space-y-4">
+                    <div *ngFor="let slot of timetable; let i = index"
+                        class="group flex items-center justify-between p-4 md:p-6 bg-white/40 hover:bg-white rounded-xl md:rounded-[1.5rem] border border-transparent hover:border-slate-100 hover:shadow-xl hover:shadow-slate-200/30 transition-all duration-300">
+                        <div class="flex items-center gap-4 md:gap-6 min-w-0">
+                            <div
+                                class="w-1 md:w-1.5 h-10 md:h-12 bg-brand-primary/20 rounded-full overflow-hidden shrink-0">
+                                <div
+                                    class="bg-brand-primary w-full h-1/2 group-hover:h-full transition-all duration-700">
+                                </div>
+                            </div>
+                            <div class="min-w-0">
+                                <p
+                                    class="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-[0.15em] mb-1">
+                                    {{
+                                    slot.time }}</p>
+                                <p
+                                    class="text-base md:text-lg font-bold text-slate-800 group-hover:text-brand-primary transition-colors truncate">
+                                    {{ slot.subject }}</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-8 h-8 md:w-10 md:h-10 bg-slate-50 text-slate-400 rounded-lg md:rounded-xl flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all shadow-sm shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
