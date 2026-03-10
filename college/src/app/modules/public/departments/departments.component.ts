@@ -9,10 +9,20 @@ import { ApiService } from '../../../core/services/api.service';
 })
 export class DepartmentsComponent implements OnInit {
     departments: any[] = [];
+    loading = true;
+    error = '';
     constructor(private api: ApiService) { }
     ngOnInit() {
-        this.api.getDepartments().subscribe((data: any) => {
-            this.departments = data;
+        this.api.getDepartments().subscribe({
+            next: (data: any) => {
+                this.departments = data;
+                this.loading = false;
+            },
+            error: (err) => {
+                this.error = 'Failed to load departments. Please try again later.';
+                this.loading = false;
+                console.error('Departments error:', err);
+            }
         });
     }
 }
