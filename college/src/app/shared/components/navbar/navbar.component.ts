@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
     standalone: true,
     imports: [CommonModule, RouterModule],
     template: `
-    <nav class="glass sticky top-4 mx-4 md:mx-6 rounded-2xl px-6 md:px-8 py-4 flex justify-between items-center z-50 transition-all duration-300">
+    <nav [class.bg-white]="isMenuOpen" [class.glass]="!isMenuOpen" class="sticky top-4 mx-4 md:mx-6 rounded-2xl px-6 md:px-8 py-4 flex justify-between items-center z-50 transition-all duration-300">
         <div class="flex items-center gap-2">
             <div class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-brand-primary/10">M</div>
             <span class="text-xl font-bold font-display tracking-tight text-slate-800">Modern <span class="text-brand-primary hidden sm:inline">University</span></span>
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
         </button>
 
         <!-- Mobile Menu Overlay -->
-        <div *ngIf="isMenuOpen" class="fixed inset-0 top-[88px] mx-4 bg-white z-40 lg:hidden rounded-3xl p-8 flex flex-col gap-6 shadow-2xl animate-fade-up border border-slate-100">
+        <div *ngIf="isMenuOpen" class="fixed inset-0 top-[88px] mx-4 bg-white z-40 lg:hidden rounded-3xl p-8 flex flex-col gap-6 shadow-2xl animate-fade-up border border-slate-100 overflow-y-auto">
             <a routerLink="/" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">Home</a>
             <a routerLink="/about" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">About</a>
             <a routerLink="/departments" (click)="isMenuOpen = false" class="text-xl font-bold text-slate-800">Departments</a>
